@@ -3,192 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bestie Messages 💖</title>
+  <title>Qtuu Messages 💖</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>💌 What my bestie wants to say 💌</h1>
 
-  <div class="mood-buttons">
-    <button onclick="showRandom('cheer')">🎉 Cheer me up</button>
-    <button onclick="showRandom('motivate')">💪 Motivate me</button>
-    <button onclick="showRandom('miss')">🥺 Miss you</button>
-    <button onclick="showRandom('funny')">😂 Make me laugh</button>
+  <!-- Intro Screen -->
+  <div id="intro">
+    <h1 class="intro-text">💖 Happy Boyfriend Day 💖</h1>
+    <audio id="intro-audio" autoplay>
+      <source src="audio/intro.mp3" type="audio/mpeg">
+    </audio>
   </div>
 
-  <div id="output">
-    <img id="photo" src="" alt="img" style="display:none;">
-    <div id="message"></div>
-    <audio id="audio" controls style="display:none;"></audio>
+  <!-- Main Content (hidden initially) -->
+  <div id="main-content" style="display:none;">
+    <h1>💌 What your Qtuu wants to say 💌</h1>
+
+    <div class="mood-buttons">
+      <button onclick="showRandom('cheer')">🎉 Cheer you up</button>
+      <!-- <button onclick="showRandom('motivate')">💪 Motivate you</button> -->
+      <button onclick="showRandom('miss')">🥺 Miss you</button>
+      <button onclick="showRandom('funny')">😂 Make you laugh</button>
+    </div>
+
+    <div id="output">
+      <img id="photo" src="" alt="" style="display:none;">
+      <div id="message"></div>
+      <!-- <audio id="audio" controls style="display:none;"></audio> -->
+    </div>
   </div>
 
   <script src="script.js"></script>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bestie Messages 💖</title>
-  <style>
-    body {
-      font-family: "Arial", sans-serif;
-      text-align: center;
-      background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
-      min-height: 100vh;
-      margin: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    h1 {
-      color: #fff;
-      margin-bottom: 20px;
-    }
-    .mood-buttons button {
-      margin: 10px;
-      padding: 12px 20px;
-      font-size: 16px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-      background: #fff;
-      box-shadow: 0px 3px 8px rgba(0,0,0,0.2);
-    }
-    .mood-buttons button:hover {
-      transform: scale(1.05);
-    }
-    #output {
-      margin-top: 30px;
-    }
-    #output img {
-      max-width: 250px;
-      border-radius: 15px;
-      box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
-      margin-bottom: 15px;
-    }
-    #message {
-      font-size: 20px;
-      color: #333;
-      margin-bottom: 15px;
-    }
-  </style>
-</head>
-<body>
-  <h1>💌 What my bestie wants to say 💌</h1>
-
-  <div class="mood-buttons">
-    <button onclick="showRandom('cheer')">🎉 Cheer me up</button>
-    <button onclick="showRandom('motivate')">💪 Motivate me</button>
-    <button onclick="showRandom('miss')">🥺 Miss you</button>
-    <button onclick="showRandom('funny')">😂 Make me laugh</button>
-  </div>
-
-  <div id="output">
-    <img id="photo" src="" alt="" style="display:none;">
-    <div id="message"></div>
-    <audio id="audio" controls style="display:none;"></audio>
-  </div>
-
   <script>
-    // Data for each mood
-    const data = {
-      cheer: {
-        messages: [
-          "Cheer up bestie, you’re amazing 🌈",
-          "Your smile is my sunshine ☀️",
-          "No sad faces allowed today 😘"
-        ],
-        photos: ["images/cheer1.jpg", "images/cheer2.jpg", "images/cheer3.jpg"],
-        audios: ["audio/cheer1.mp3", "audio/cheer2.mp3"]
-      },
-      motivate: {
-        messages: [
-          "You can do anything you put your mind to 💪",
-          "Keep going, I believe in you 🌟",
-          "Stronger than yesterday ✨"
-        ],
-        photos: ["images/motivate1.jpg", "images/motivate2.jpg"],
-        audios: ["audio/motivate1.mp3"]
-      },
-      miss: {
-        messages: [
-          "I miss you so much 🥺",
-          "Thinking of you always 💕",
-          "You’re always in my heart ❤️"
-        ],
-        photos: ["images/miss1.jpg", "images/miss2.jpg"],
-        audios: ["audio/miss1.mp3", "audio/miss2.mp3"]
-      },
-      funny: {
-        messages: [
-          "You’re the peanut butter to my jelly 🥪😂",
-          "Bestie + Me = 200% chaos 🤪",
-          "Laughter is free, but you’re priceless 😆"
-        ],
-        photos: ["images/funny1.jpg", "images/funny2.jpg"],
-        audios: ["audio/funny1.mp3"]
-      }
-    };
+    // Intro transition after 5 seconds
+    setTimeout(() => {
+      document.getElementById("intro").style.display = "none";
+      document.getElementById("main-content").style.display = "block";
 
-    function getRandomItem(arr) {
-      return arr[Math.floor(Math.random() * arr.length)];
-    }
-
-    function showRandom(mood) {
-      const moodData = data[mood];
-
-      // Pick random
-      const message = getRandomItem(moodData.messages);
-      const photo = getRandomItem(moodData.photos);
-      const audio = getRandomItem(moodData.audios);
-
-      // Display
-      document.getElementById("message").textContent = message;
-
-      const img = document.getElementById("photo");
-      img.src = photo;
-      img.style.display = "block";
-
-      const audioPlayer = document.getElementById("audio");
-      audioPlayer.src = audio;
-      audioPlayer.style.display = "block";
-      audioPlayer.play();
-    }
+      // stop intro music
+      document.getElementById("intro-audio").pause();
+    }, 5000);
   </script>
 </body>
-</html> -->
+</html>
