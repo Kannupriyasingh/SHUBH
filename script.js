@@ -6,7 +6,7 @@ const data = {
       "Your smile is my sunshine ☀️",
       "No sad faces allowed today 😘"
     ],
-    photos: ["images/smile1.jpeg", "images/smile2.jpeg", "images/smile3.jpeg"],
+    photos: ["images/smile1.jpeg", "images/smile3.jpeg", "images/smile4.jpg"],
     audios: ["audio/cheer1.mp3", "audio/cheer2.mp3"]
   },
   // motivate: {
@@ -24,7 +24,7 @@ const data = {
       "Thinking of you always 💕",
       "You’re always in my heart ❤️"
     ],
-    photos: ["images/miss1.jpeg", "images/miss2.jpeg", "images/miss3.jpeg", "images/miss4.png"],
+    photos: ["images/miss1.jpeg", "images/miss2.jpeg", "images/miss3.jpeg", "images/miss4.jpg", "images/miss5.jpg", "images/miss6.png"],
     audios: ["audio/miss1.mp3", "audio/miss2.mp3"]
   },
   funny: {
@@ -33,7 +33,7 @@ const data = {
       "Bestie + Me = 200% chaos 🤪",
       "Laughter is free, but you’re priceless 😆"
     ],
-    photos: ["images/laugh1.jpeg", "images/laugh2.jpeg", "images/laugh3.jpeg"],
+    photos: ["images/laugh1.jpeg", "images/laugh2.jpeg", "images/laugh3.jpeg", "images/laugh4.jpg", "images/laugh5.jpg", "images/laugh6.jpg"],
     audios: ["audio/funny1.mp3"]
   }
 };
